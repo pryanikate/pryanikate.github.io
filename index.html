@@ -8,20 +8,36 @@
   <link rel="stylesheet" href="styles.css" />
 
   <style>
-    /* V4 — MISIS documentary photography */
-    .case-featured .case-visual.misis-hero { overflow:hidden; min-height:720px; background:#111; }
-    .case-featured .case-visual.misis-hero img { width:100%; height:100%; min-height:720px; object-fit:cover; object-position:50% 50%; display:block; }
-    .misis-photo { margin:28px 0 8px; overflow:hidden; background:#ddd; }
-    .misis-photo img { width:100%; height:auto; display:block; }
-    .misis-photo.landscape img { aspect-ratio:4/3; object-fit:cover; }
-    .misis-photo.wide img { aspect-ratio:3/2; object-fit:cover; }
-    .misis-photo figcaption { padding:9px 0 0; font-size:12px; line-height:1.35; opacity:.58; }
-    .misis-pair { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:28px 0 8px; }
-    .misis-pair figure { margin:0; overflow:hidden; }
-    .misis-pair img { width:100%; aspect-ratio:4/3; object-fit:cover; display:block; }
-    @media (max-width: 900px) {
-      .case-featured .case-visual.misis-hero, .case-featured .case-visual.misis-hero img { min-height:420px; }
-      .misis-pair { grid-template-columns:1fr; }
+    /* V5 — deliberately text-only. No project photography. */
+    .case-text-panel{
+      display:flex; flex-direction:column; justify-content:space-between;
+      min-height:720px; padding:42px; border-left:1px solid rgba(17,17,17,.28);
+    }
+    .case-text-panel .panel-kicker{font-size:12px;text-transform:uppercase;letter-spacing:.12em;opacity:.65}
+    .case-text-panel .panel-flow{font-size:clamp(38px,5.2vw,82px);line-height:.92;letter-spacing:-.055em;font-weight:800}
+    .case-text-panel .panel-flow span{display:block}
+    .case-text-panel .panel-note{max-width:390px;font-size:14px;line-height:1.5;opacity:.72}
+    .case-light,.case-dark{grid-template-columns:120px minmax(0,1fr)!important}
+    .case-light .case-copy,.case-dark .case-copy{max-width:none!important;padding-right:clamp(28px,7vw,110px)!important}
+    .case-light .case-copy h2,.case-dark .case-copy h2{max-width:980px}
+    .case-light .case-columns,.case-dark .case-columns{max-width:1050px}
+    .case-light .case-tags,.case-dark .selected-projects{max-width:1050px}
+    .case-visual,.case-gallery,.misis-photo,.misis-pair{display:none!important}
+    @media(max-width:900px){
+      .case-text-panel{min-height:auto;padding:30px 28px;border-left:0;border-top:1px solid rgba(17,17,17,.28);gap:60px}
+      .case-light,.case-dark{grid-template-columns:1fr!important}
+    }
+
+    /* V6 — one portrait only, in About. */
+    .about-with-portrait{display:grid;grid-template-columns:minmax(220px,360px) minmax(0,1fr);gap:clamp(42px,7vw,110px);align-items:start}
+    .about-portrait{margin:0}
+    .about-portrait img{display:block;width:100%;height:auto;filter:none}
+    .about-portrait figcaption{margin-top:9px;font-size:11px;line-height:1.3;letter-spacing:.04em;opacity:.55}
+    .about-copy{display:grid;grid-template-columns:1fr;gap:38px}
+    .about-copy h2{margin-top:0}
+    @media(max-width:760px){
+      .about-with-portrait{grid-template-columns:1fr;gap:42px}
+      .about-portrait{max-width:420px}
     }
   </style>
 </head>
@@ -51,12 +67,18 @@
 
     <section id="about" class="section section-grid ruled">
       <div class="section-label">01 / About</div>
-      <div class="section-main split-copy">
-        <h2>I work where cultural thinking meets project delivery.</h2>
-        <div>
-          <p>I build cultural and educational programmes, exhibitions and interdisciplinary collaborations at the intersection of contemporary art, technology and research.</p>
-          <p>My work spans the full project lifecycle: developing concepts and educational frameworks, coordinating teams, mentoring participants, producing exhibitions and bringing projects to public presentation.</p>
-          <p>My background as an artist and researcher informs the way I approach interdisciplinary projects, particularly those connecting contemporary art, artificial intelligence, digital culture and science.</p>
+      <div class="section-main about-with-portrait">
+        <figure class="about-portrait">
+          <img src="assets/portrait-tony-smug.jpg" alt="Portrait of Ekaterina Prianichnikova" />
+          <figcaption>Photo: Tony Smug</figcaption>
+        </figure>
+        <div class="about-copy">
+          <h2>I work where cultural thinking meets project delivery.</h2>
+          <div>
+            <p>I build cultural and educational programmes, exhibitions and interdisciplinary collaborations at the intersection of contemporary art, technology and research.</p>
+            <p>My work spans the full project lifecycle: developing concepts and educational frameworks, coordinating teams, mentoring participants, producing exhibitions and bringing projects to public presentation.</p>
+            <p>My background as an artist and researcher informs the way I approach interdisciplinary projects, particularly those connecting contemporary art, artificial intelligence, digital culture and science.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -97,7 +119,7 @@
             <div><h3>Rodchenko School</h3><p>Laboratory Lead & Lecturer — Cross-Media in Art</p></div>
           </article>
           <article class="timeline-item">
-            <div class="year">2021—</div>
+            <div class="year">2021—23</div>
             <div><h3>NUST MISIS</h3><p>Founding Programme Curator — MA in Technological Art</p></div>
           </article>
           <article class="timeline-item">
@@ -143,22 +165,12 @@
           </div>
         </div>
 
-        <figure class="misis-photo landscape">
-          <img src="assets/misis/misis-learning.jpg" alt="Students working during the Technological Art programme at NUST MISIS" />
-          <figcaption>Learning environment · NUST MISIS</figcaption>
-        </figure>
-
         <div class="story-block">
           <div class="story-label">02 · From curriculum to learning</div>
           <div class="story-text">
             <p>Designing the programme was only the beginning. Once teaching started, a large part of my role was connecting the different parts of the educational process — students, lecturers, artistic practice, technical experimentation and university requirements.</p>
             <p>I worked with lecturers on course objectives and assignments and mentored students as those assignments developed into independent artistic projects. This often meant moving between very different levels of a project: discussing its conceptual framework, helping a student clarify an idea, suggesting appropriate technologies or tools, and giving critical feedback during reviews and presentations.</p>
           </div>
-        </div>
-
-        <div class="misis-pair">
-          <figure><img src="assets/misis/misis-production.jpg" alt="Technical project development during the Technological Art programme" /></figure>
-          <figure><img src="assets/misis/misis-public.jpg" alt="Public presentation and discussion in a technological art setting" /></figure>
         </div>
 
         <div class="story-block">
@@ -169,11 +181,6 @@
           </div>
         </div>
 
-        <figure class="misis-photo wide">
-          <img src="assets/misis/misis-installation.jpg" alt="Installation process for a student exhibition" />
-          <figcaption>Exhibition production · installation in progress</figcaption>
-        </figure>
-
         <blockquote class="case-quote">Someone has to build the connections — between an artistic idea and a technical method, between a lecturer's expertise and a student's project, and between an educational process and its public outcome.</blockquote>
 
         <div class="case-role">
@@ -183,9 +190,11 @@
 
         <div class="case-tags"><span>Programme design</span><span>Curriculum design</span><span>Faculty coordination</span><span>Mentoring</span><span>Exhibition production</span><span>Project management</span></div>
       </div>
-      <div class="case-visual misis-hero">
-        <img src="assets/misis/misis-main.jpg" alt="Students working together in the Technological Art Master's programme at NUST MISIS" />
-      </div>
+      <aside class="case-text-panel" aria-label="Programme development process">
+        <div class="panel-kicker">Programme development process</div>
+        <div class="panel-flow"><span>Concept</span><span>→ Curriculum</span><span>→ Projects</span><span>→ Public</span><span>presentation</span></div>
+        <p class="panel-note">A programme is not only a curriculum. It is a structure connecting people, methods, projects, production and a public outcome.</p>
+      </aside>
     </section>
 
     <section class="case case-light">
@@ -206,7 +215,6 @@
         </div>
         <div class="case-tags"><span>Curriculum development</span><span>Higher education</span><span>Mentoring</span><span>Project development</span></div>
       </div>
-      <div class="case-visual image-panel ai-winter"><img src="assets/rodchenko/01.jpg" alt="Snowy landscape from the AI Winter project" data-image-id="rodchenko-main" /></div>
     </section>
 
     <section class="case case-dark">
@@ -234,10 +242,6 @@
           <span>Unfreedom · 2018</span>
         </div>
       </div>
-      <div class="case-gallery">
-        <figure><img src="assets/curatorial/01.jpg" alt="Installation view from An Uncomfortable Mirror" data-image-id="curatorial-1" /></figure>
-        <figure><img src="assets/curatorial/02.jpg" alt="Installation view from Crossroads" data-image-id="curatorial-2" /></figure>
-      </div>
     </section>
 
     <section class="section section-grid ruled approach">
@@ -263,7 +267,6 @@
   </main>
 
   <footer><span>Ekaterina Prianichnikova</span><span>Professional portfolio · 2026</span></footer>
-  <script src="image-settings.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
