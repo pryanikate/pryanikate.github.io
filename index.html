@@ -6,6 +6,24 @@
   <meta name="description" content="Ekaterina Prianichnikova — cultural project manager, curator and educator working across contemporary art, technology and education." />
   <title>Ekaterina Prianichnikova — Cultural Projects, Curation & Education</title>
   <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /* V4 — MISIS documentary photography */
+    .case-featured .case-visual.misis-hero { overflow:hidden; min-height:720px; background:#111; }
+    .case-featured .case-visual.misis-hero img { width:100%; height:100%; min-height:720px; object-fit:cover; object-position:50% 50%; display:block; }
+    .misis-photo { margin:28px 0 8px; overflow:hidden; background:#ddd; }
+    .misis-photo img { width:100%; height:auto; display:block; }
+    .misis-photo.landscape img { aspect-ratio:4/3; object-fit:cover; }
+    .misis-photo.wide img { aspect-ratio:3/2; object-fit:cover; }
+    .misis-photo figcaption { padding:9px 0 0; font-size:12px; line-height:1.35; opacity:.58; }
+    .misis-pair { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:28px 0 8px; }
+    .misis-pair figure { margin:0; overflow:hidden; }
+    .misis-pair img { width:100%; aspect-ratio:4/3; object-fit:cover; display:block; }
+    @media (max-width: 900px) {
+      .case-featured .case-visual.misis-hero, .case-featured .case-visual.misis-hero img { min-height:420px; }
+      .misis-pair { grid-template-columns:1fr; }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -125,12 +143,22 @@
           </div>
         </div>
 
+        <figure class="misis-photo landscape">
+          <img src="assets/misis/misis-learning.jpg" alt="Students working during the Technological Art programme at NUST MISIS" />
+          <figcaption>Learning environment · NUST MISIS</figcaption>
+        </figure>
+
         <div class="story-block">
           <div class="story-label">02 · From curriculum to learning</div>
           <div class="story-text">
             <p>Designing the programme was only the beginning. Once teaching started, a large part of my role was connecting the different parts of the educational process — students, lecturers, artistic practice, technical experimentation and university requirements.</p>
             <p>I worked with lecturers on course objectives and assignments and mentored students as those assignments developed into independent artistic projects. This often meant moving between very different levels of a project: discussing its conceptual framework, helping a student clarify an idea, suggesting appropriate technologies or tools, and giving critical feedback during reviews and presentations.</p>
           </div>
+        </div>
+
+        <div class="misis-pair">
+          <figure><img src="assets/misis/misis-production.jpg" alt="Technical project development during the Technological Art programme" /></figure>
+          <figure><img src="assets/misis/misis-public.jpg" alt="Public presentation and discussion in a technological art setting" /></figure>
         </div>
 
         <div class="story-block">
@@ -141,6 +169,11 @@
           </div>
         </div>
 
+        <figure class="misis-photo wide">
+          <img src="assets/misis/misis-installation.jpg" alt="Installation process for a student exhibition" />
+          <figcaption>Exhibition production · installation in progress</figcaption>
+        </figure>
+
         <blockquote class="case-quote">Someone has to build the connections — between an artistic idea and a technical method, between a lecturer's expertise and a student's project, and between an educational process and its public outcome.</blockquote>
 
         <div class="case-role">
@@ -150,9 +183,8 @@
 
         <div class="case-tags"><span>Programme design</span><span>Curriculum design</span><span>Faculty coordination</span><span>Mentoring</span><span>Exhibition production</span><span>Project management</span></div>
       </div>
-      <div class="case-visual visual-abstract" aria-hidden="true">
-        <div class="orb"></div><div class="wire"></div>
-        <div class="visual-note"><span>CASE 01</span><strong>Concept → curriculum → people → projects → exhibition</strong></div>
+      <div class="case-visual misis-hero">
+        <img src="assets/misis/misis-main.jpg" alt="Students working together in the Technological Art Master's programme at NUST MISIS" />
       </div>
     </section>
 
